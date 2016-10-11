@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
     <title>Tool Socket.IO Logger Demo</title>
     <style>
         textarea {
@@ -41,19 +42,22 @@
     <script>
         + function() {
             if (io) {
-                var socket = io('http://localhost:9528');
+                var socket = io('http://' + location.hostname + ':9528');
                 var sendBtn = document.getElementById('send-msg-btn');
                 var msgField = document.getElementById('message');
                 sendBtn.addEventListener('click', function(evt) {
                     evt.preventDefault();
                     socket.emit('debug', {
-                        'from': 'demo',
+                        'from': socket.id,
                         msg: msgField.value
                     });
                 });
                 socket.on('broadcast', function(data) {
                     console.log(data);
+                    alert(JSON.stringify(data, null, 2));
                 });
+            } else {
+                alert('socket.io load error');
             }
         }();
     </script>
