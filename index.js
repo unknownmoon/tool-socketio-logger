@@ -1,5 +1,6 @@
 const Logger = require('./lib/logger');
-const argv = require('minimist')(process.argv.slice(2));
+const _u = require('./lib/util');
+const argv = _u.GLOBAL.argv;
 
 const logger = new Logger({
     port: argv.p || argv.port || 9528

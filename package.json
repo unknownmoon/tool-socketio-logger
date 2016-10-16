@@ -4,7 +4,9 @@
   "description": "A simple as-it-is message logger powered by socket.io",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm run start-bright",
+    "start-dark": "node index.js --color dark",
+    "start-bright": "node index.js --color bright",
     "start-demo": "http-server -p 9527 ./client-demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
