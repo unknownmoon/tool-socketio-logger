@@ -1,0 +1,43 @@
+{
+  "name": "tool-socketio-logger",
+  "version": "0.0.1",
+  "description": "A simple as-it-is message logger powered by socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start-bright",
+    "start-dark": "node index.js --color dark",
+    "start-bright": "node index.js --color bright",
+    "start-demo": "http-server -p 9527 ./client-demo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://unknownmoon@github.com/unknownmoon/tool-socketio-logger.git"
+  },
+  "keywords": [
+    "socket.io",
+    "logger"
+  ],
+  "author": "Unknown Moon <unknownmoon@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unknownmoon/tool-socketio-logger/issues"
+  },
+  "homepage": "https://github.com/unknownmoon/tool-socketio-logger#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "lodash": "^4.16.4",
+    "minimist": "^1.2.0",
+    "socket.io": "^1.5.0"
+  },
+  "engines": {
+    "node": ">= 4.1.0",
+    "npm": ">= 3.0.0"
+  },
+  "bin": {
+    "tool-socketio-logger": "index.js"
+  }
+}
