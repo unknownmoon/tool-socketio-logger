@@ -1,17 +1,7 @@
-var io = require('socket.io')(9528);
+const Logger = require('./lib/logger');
 
-io.on('connection', function(socket) {
-
-    io.emit('broadcast', {
-        id: socket.id,
-        msg: socket.id + ' connected'
-    });
-
-    socket.on('debug', function(data) {
-        console.log('Data from ' + (data && data['from']) + ': ' + (data && data.msg));
-    });
-
-    socket.on('disconnect', function() {
-        io.emit(socket.id + ' disconnected');
-    });
+const logger = new Logger({
+    port: 9528
 });
+
+logger.start();

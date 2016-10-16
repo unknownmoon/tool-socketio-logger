@@ -37,28 +37,15 @@
         </section>
         <footer>by Unknown Moon</footer>
     </article>
-
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="http://localhost:9528/api/v0/socket-inject?func=__debug&func=__log"></script>
     <script>
         + function() {
-            if (io) {
-                var socket = io('http://' + location.hostname + ':9528');
-                var sendBtn = document.getElementById('send-msg-btn');
-                var msgField = document.getElementById('message');
-                sendBtn.addEventListener('click', function(evt) {
-                    evt.preventDefault();
-                    socket.emit('debug', {
-                        'from': socket.id,
-                        msg: msgField.value
-                    });
-                });
-                socket.on('broadcast', function(data) {
-                    console.log(data);
-                    alert(JSON.stringify(data, null, 2));
-                });
-            } else {
-                alert('socket.io load error');
-            }
+            var sendBtn = document.getElementById('send-msg-btn');
+            var msgField = document.getElementById('message');
+            sendBtn.addEventListener('click', function(evt) {
+                evt.preventDefault();
+                __log(msgField.value);
+            });
         }();
     </script>
 </body>
