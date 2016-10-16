@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const Logger = require('./lib/logger');
 const _u = require('./lib/util');
 const argv = _u.GLOBAL.argv;
