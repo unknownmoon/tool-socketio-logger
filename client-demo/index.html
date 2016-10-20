@@ -37,8 +37,25 @@
         </section>
         <footer>by Unknown Moon</footer>
     </article>
-    <script src="http://localhost:9528/api/v0/socket-inject?func=__debug&func=__log"></script>
     <script>
+        + function() {
+            var url = 'http://localhost:9528/api/v0/socket-inject?func=__debug&func=__log&from=r-' + Math.round(100 * Math.random());
+            var scriptElm = document.createElement('script');
+            scriptElm.src = url;
+            document.body.appendChild(scriptElm);
+            scriptElm.addEventListener('load', function() {
+                var sendBtn = document.getElementById('send-msg-btn');
+                var msgField = document.getElementById('message');
+                sendBtn.addEventListener('click', function(evt) {
+                    evt.preventDefault();
+                    __log(msgField.value);
+                });
+            });
+        }();
+    </script>
+    <!--<script src="http://localhost:9528/api/v0/socket-inject?func=__debug&func=__log&from=l24"></script>-->
+    <!--<script src="http://localhost:9528/api/v0/socket-inject?func=__debug&func=__log"></script>-->
+    <!--<script>
         + function() {
             var sendBtn = document.getElementById('send-msg-btn');
             var msgField = document.getElementById('message');
@@ -47,7 +64,7 @@
                 __log(msgField.value);
             });
         }();
-    </script>
+    </script>-->
 </body>
 
 </html>

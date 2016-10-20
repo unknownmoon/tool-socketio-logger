@@ -34,3 +34,14 @@ In the example below, `__debug` and `__log` are registered to the logger, with d
     __log(location);
 </scirpt>
 ```
+
+Newly add `from` in query, for providing an id other than the random socket id. (Note that socket id will be used if `from` is ommitted.)
+
+```html
+<script src="http://localhost:9528/api/v0/socket-inject?func=__debug&func=__log&from=alice"></script>
+<scirpt>
+    // how to use the client logging functions
+    __debug(location);
+    __log(location);
+</scirpt>
+```
