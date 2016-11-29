@@ -1,6 +1,6 @@
 {
   "name": "tool-socketio-logger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple as-it-is message logger powered by socket.io",
   "main": "index.js",
   "scripts": {
